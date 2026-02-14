@@ -8,6 +8,8 @@ def ChecarCompra(nomeItem):
     pyautogui.moveTo(680, 489)
     pyautogui.click()
 
+    time.sleep(1)
+
     #Pedido de compra
     pyautogui.moveTo(751, 233)
     pyautogui.click()

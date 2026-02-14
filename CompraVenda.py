@@ -7,21 +7,21 @@ def EfetuarCompra(menorCompra, nomeItem, quantidade):
     time.sleep(3)
 
     #Abre o mercado
-    pyautogui.moveTo(966, 623)
+    pyautogui.moveTo(680, 489)
     pyautogui.click()
 
     #Publicar
-    pyautogui.moveTo(881, 336)
+    pyautogui.moveTo(614, 231)
     pyautogui.click()
 
     time.sleep(0.5)
 
     #Botão Comprar
-    pyautogui.moveTo(997, 743)
+    pyautogui.moveTo(720, 636)
     pyautogui.click()
 
     #Botão Pesquisar
-    pyautogui.moveTo(709, 395)
+    pyautogui.moveTo(447, 287)
     pyautogui.click()
 
     #Pesquisar item compra
@@ -31,38 +31,38 @@ def EfetuarCompra(menorCompra, nomeItem, quantidade):
 
     if nomeItem == "Gema":
         #Botão Comprar
-        pyautogui.moveTo(710, 447)
+        pyautogui.moveTo(436, 345)
         pyautogui.click()
     else:
         #Botão Comprar
-        pyautogui.moveTo(650, 453)
+        pyautogui.moveTo(370, 345)
         pyautogui.click()
 
     #Botão Pesquisar
-    pyautogui.moveTo(1072, 419)
+    pyautogui.moveTo(808, 310)
     pyautogui.click()
 
     pyautogui.write(menorCompra)
 
     #Adicionar quantidade
-    pyautogui.moveTo(1258, 442)
+    pyautogui.moveTo(752, 337)
     for i in range(1, quantidade):
         pyautogui.click()
 
     #Criar Pedido
-    pyautogui.moveTo(1082, 686)
+    pyautogui.moveTo(805, 580)
     pyautogui.click()
 
         #Criar
-    pyautogui.moveTo(958, 607)
+    pyautogui.moveTo(676, 502)
     pyautogui.click()
 
        #Criei o ordem de compra
-    pyautogui.moveTo(974, 536)
+    pyautogui.moveTo(702, 426)
     pyautogui.click()
 
     #Fechar aba
-    pyautogui.moveTo(1289, 300)
+    pyautogui.moveTo(1012, 194)
     pyautogui.click()
 
 #VENDA

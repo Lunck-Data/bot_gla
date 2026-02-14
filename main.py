@@ -24,7 +24,6 @@ def timer_forninho(tempo):
 
 def menosUm(menorCompra):
     menorCompra = menorCompra.replace(".", "")
-    print(menorCompra)
     try:
         menorCompra = int(menorCompra) + 1
         menorCompra = str(menorCompra)
@@ -41,7 +40,7 @@ def igual(menorVenda):
     except ValueError:
         return
 
-quantidade = 5
+quantidade = 1
 lucroMinimo = 500
 
 time.sleep(3)
@@ -55,12 +54,12 @@ while 1 == 1:
         try:
             menorCompra, vendedorCompra = MarketCompra.ChecarCompra(nome)
             menorVenda, vendedorVenda = MarketVenda.ChecarVenda(nome)
-    #         menorCompra = menosUm(menorCompra)
-    #         menorVenda = igual(menorVenda)
-    #         print(f"Margem de lucro {nome}: {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
-    #         if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
-    #             if not vendedorCompra == "Lunck":
-    #                 CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
+            menorCompra = menosUm(menorCompra)
+            menorVenda = igual(menorVenda)
+            print(f"Margem de lucro {nome}: {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+            if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
+                if not vendedorCompra == "Marketmaker":
+                    CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
     #                 time.sleep(1)
     #             if not vendedorVenda == "Lunck":
     #                 CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)

@@ -8,7 +8,7 @@ def ChecarVenda(nomeItem):
     pyautogui.moveTo(680, 489)
     pyautogui.click()
 
-    time.sleep(0.5)
+    time.sleep(1)
 
     #Pesquisar item venda
     pyautogui.write(nomeItem)
