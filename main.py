@@ -11,7 +11,7 @@ import CheckTelas
 # Agendamento simples e direto
 schedule.every().day.at("10:20").do(Deslogar.quit)
 
-contador = 0
+contador = 241
 
 def timer_forninho(tempo):
         print(f"Iniciando cronômetro de {tempo} segundos para voltar ao trabalho")
@@ -63,18 +63,16 @@ while 1 == 1:
                     time.sleep(1)
                 if not vendedorVenda == "Marketmaker":
                     CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
-    #                 time.sleep(1)
-    #         else:
-    #             print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+                    time.sleep(1)
+            else:
+                print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
         except TypeError:
             pass
-    # contador += 1
-    # print(f"Estamos na volta {contador}/240")
+    contador += 1
+    print(f"Estamos na volta {contador}/240")
 
-    # if contador >= 240:
-    #     reset.resetMarket()
-    #     contador = 0
-    # Bau.bau()
-    # timer_forninho(30)
-
-    break
+    if contador >= 240:
+        reset.resetMarket()
+        contador = 0
+    Bau.bau()
+    timer_forninho(30)

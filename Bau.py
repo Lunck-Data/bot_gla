@@ -3,17 +3,14 @@ import time
 import keyboard
 
 def bau():
-    #Abrir bau
-
-    pyautogui.moveTo(1043,636)
+    #Abrir baú
+    pyautogui.moveTo(739, 494)
     pyautogui.click()
 
     #Coletar
-
-    pyautogui.moveTo(1854, 495)
+    pyautogui.moveTo(1301, 286)
     pyautogui.click()
 
-    #Abrir bau
-
-    pyautogui.moveTo(1043,636)
+    #Fechar baú
+    pyautogui.moveTo(1350, 287)
     pyautogui.click()
