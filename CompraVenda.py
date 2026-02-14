@@ -68,52 +68,54 @@ def EfetuarCompra(menorCompra, nomeItem, quantidade):
 #VENDA
 def EfetuarVenda(menorVenda, nomeItem, quantidade):
     #Abre o mercado
-    pyautogui.moveTo(966, 623)
+    pyautogui.moveTo(680, 489)
     pyautogui.click()
 
     #Publicar
-    pyautogui.moveTo(881, 336)
+    pyautogui.moveTo(614, 231)
     pyautogui.click()
 
+    time.sleep(0.5)
+
     #Botao vender
-    pyautogui.moveTo(1121, 742)
+    pyautogui.moveTo(841, 634)
     pyautogui.click()
 
     if nomeItem == "Gema":
         #Gema
-        pyautogui.moveTo(1013, 690)
+        pyautogui.moveTo(734, 586)
         pyautogui.click()
 
         #Zerar quantidade
-        pyautogui.moveTo(889,441)
+        pyautogui.moveTo(616, 333)
         pyautogui.click()
 
-        pyautogui.moveTo(1162, 439)
+        pyautogui.moveTo(883, 334)
         for i in range(1, quantidade):
             pyautogui.click()
 
         #Colocar preco
-        pyautogui.moveTo(938,418)
+        pyautogui.moveTo(697, 308)
         pyautogui.click()
 
         pyautogui.write(menorVenda)
 
         #Vender
-        pyautogui.moveTo(904,693)
+        pyautogui.moveTo(624, 586)
         pyautogui.click()
 
         #Confirmação
-        pyautogui.moveTo(961,612)
+        pyautogui.moveTo(695, 502)
         pyautogui.click()
 
         #Fechar aba
-        pyautogui.moveTo(1289, 300)
+        pyautogui.moveTo(1012, 194)
         pyautogui.click()
 
     else:
 
         #Selecionar
-        pyautogui.moveTo(767, 397)
+        pyautogui.moveTo(489, 293)
         pyautogui.click()
 
         foto = nomeItem + ".png"
@@ -139,12 +141,12 @@ def EfetuarVenda(menorVenda, nomeItem, quantidade):
         #     return
 
         try:
-            localizacao = pyautogui.locateOnScreen(f"{foto}", confidence=0.65, region=(1715, 216, 203, 806))
+            localizacao = pyautogui.locateOnScreen(f"{foto}", confidence=0.65, region=(976, 70, 373, 671))
             pyautogui.moveTo(localizacao)
             pyautogui.click()
         except pyautogui.ImageNotFoundException:
             try:
-                localizacao = pyautogui.locateOnScreen(f"{foto1}", confidence=0.65, region=(1715, 216, 203, 806))
+                localizacao = pyautogui.locateOnScreen(f"{foto1}", confidence=0.65, region=((976, 70, 373, 671)))
                 pyautogui.moveTo(localizacao)
                 pyautogui.click()
             except pyautogui.ImageNotFoundException:
@@ -153,35 +155,35 @@ def EfetuarVenda(menorVenda, nomeItem, quantidade):
 
                     #Fechar aba
                 pyautogui.click()
-                pyautogui.moveTo(1289, 300)
+                pyautogui.moveTo(1012, 194)
                 pyautogui.click()
 
                 return
 
         #Zerar quantidade
-        pyautogui.moveTo(889,441)
+        pyautogui.moveTo(615, 332)
         pyautogui.click()
 
-        pyautogui.moveTo(1162, 439)
-        for i in range(1, quantidade):
+        pyautogui.moveTo(884, 335)
+        for i in range(0,4):
             pyautogui.click()
 
         #Colocar preco
-        pyautogui.moveTo(938,418)
+        pyautogui.moveTo(698, 308)
         pyautogui.click()
 
         pyautogui.write(menorVenda)
 
         #Vender
-        pyautogui.moveTo(904,693)
+        pyautogui.moveTo(627, 591)
         pyautogui.click()
 
         #Confirmação
-        pyautogui.moveTo(961,612)
+        pyautogui.moveTo(689, 498)
         pyautogui.click()
 
         #Fechar aba
-        pyautogui.moveTo(1289, 300)
+        pyautogui.moveTo(1015, 197)
         pyautogui.click()
 
 

@@ -28,7 +28,7 @@ def ChecarCompra(nomeItem):
     pyautogui.moveTo(966, 273)
     pyautogui.click()
 
-    time.sleep(2)
+    time.sleep(3.5)
     preco_detectado = Checagem.ler_preco_mercado(907, 310, 92, 35)
     print(f"Menor preço de compra do {nomeItem}: {preco_detectado}")
 

@@ -60,9 +60,9 @@ while 1 == 1:
             if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
                 if not vendedorCompra == "Marketmaker":
                     CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
-    #                 time.sleep(1)
-    #             if not vendedorVenda == "Lunck":
-    #                 CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
+                    time.sleep(1)
+                if not vendedorVenda == "Marketmaker":
+                    CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
     #                 time.sleep(1)
     #         else:
     #             print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
