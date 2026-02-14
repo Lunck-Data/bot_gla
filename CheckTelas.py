@@ -17,6 +17,3 @@ def checagemDeTelas():
         pyautogui.click()
     except pyautogui.ImageNotFoundException:
         localizacao = None
-        print("Nao")
-
-checagemDeTelas()

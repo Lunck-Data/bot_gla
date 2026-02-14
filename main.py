@@ -55,25 +55,27 @@ while 1 == 1:
         try:
             menorCompra, vendedorCompra = MarketCompra.ChecarCompra(nome)
             menorVenda, vendedorVenda = MarketVenda.ChecarVenda(nome)
-            menorCompra = menosUm(menorCompra)
-            menorVenda = igual(menorVenda)
-            print(f"Margem de lucro {nome}: {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
-            if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
-                if not vendedorCompra == "Lunck":
-                    CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
-                    time.sleep(1)
-                if not vendedorVenda == "Lunck":
-                    CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
-                    time.sleep(1)
-            else:
-                print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+    #         menorCompra = menosUm(menorCompra)
+    #         menorVenda = igual(menorVenda)
+    #         print(f"Margem de lucro {nome}: {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+    #         if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
+    #             if not vendedorCompra == "Lunck":
+    #                 CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
+    #                 time.sleep(1)
+    #             if not vendedorVenda == "Lunck":
+    #                 CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
+    #                 time.sleep(1)
+    #         else:
+    #             print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
         except TypeError:
             pass
-    contador += 1
-    print(f"Estamos na volta {contador}/240")
+    # contador += 1
+    # print(f"Estamos na volta {contador}/240")
 
-    if contador >= 240:
-        reset.resetMarket()
-        contador = 0
-    Bau.bau()
-    timer_forninho(30)
+    # if contador >= 240:
+    #     reset.resetMarket()
+    #     contador = 0
+    # Bau.bau()
+    # timer_forninho(30)
+
+    break
