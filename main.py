@@ -40,7 +40,7 @@ def igual(menorVenda):
     except ValueError:
         return
 
-quantidade = 1
+quantidade = 5
 lucroMinimo = 500
 
 time.sleep(3)

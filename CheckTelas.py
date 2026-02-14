@@ -6,6 +6,7 @@ def checagemDeTelas():
     try:
         localizacao = pyautogui.locateOnScreen("Jogar.png", confidence=0.65, region=(560, 89, 253, 77))
         pyautogui.moveTo(localizacao)
+        time.sleep(1)
         pyautogui.click()
         time.sleep(5)
     except pyautogui.ImageNotFoundException:

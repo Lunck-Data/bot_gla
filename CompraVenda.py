@@ -45,7 +45,7 @@ def EfetuarCompra(menorCompra, nomeItem, quantidade):
     pyautogui.write(menorCompra)
 
     #Adicionar quantidade
-    pyautogui.moveTo(752, 337)
+    pyautogui.moveTo(981, 336)
     for i in range(1, quantidade):
         pyautogui.click()
 
