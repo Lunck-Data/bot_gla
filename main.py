@@ -11,7 +11,7 @@ import CheckTelas
 # Agendamento simples e direto
 schedule.every().day.at("10:20").do(Deslogar.quit)
 
-contador = 241
+contador = 0
 
 def timer_forninho(tempo):
         print(f"Iniciando cronômetro de {tempo} segundos para voltar ao trabalho")
