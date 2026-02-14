@@ -1,12 +1,10 @@
 import pyautogui
 import time
-import keyboard
-import Checagem
 
 def checagemDeTelas():
 
     try:
-        localizacao = pyautogui.locateOnScreen("Jogar.png", confidence=0.65, region=(804, 36, 323, 102))
+        localizacao = pyautogui.locateOnScreen("Jogar.png", confidence=0.65, region=(560, 89, 253, 77))
         pyautogui.moveTo(localizacao)
         pyautogui.click()
         time.sleep(5)
@@ -14,10 +12,11 @@ def checagemDeTelas():
         localizacao = None
 
     try:
-        localizacao = pyautogui.locateOnScreen("Loja.png", confidence=0.65, region=(1298, 302, 42, 39))
+        localizacao = pyautogui.locateOnScreen("Loja.png", confidence=0.65, region=(1015, 190, 53, 50))
         pyautogui.moveTo(localizacao)
         pyautogui.click()
     except pyautogui.ImageNotFoundException:
         localizacao = None
+        print("Nao")
 
 checagemDeTelas()
