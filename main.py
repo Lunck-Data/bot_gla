@@ -1,59 +1,79 @@
-
-import AbrirMarket
-import Venda
+import MarketCompra
+import MarketVenda
+import CompraVenda
 import time
 import Bau
-import pytesseract
+import schedule
+import Deslogar
+import reset
+import CheckTelas
 
-pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+# Agendamento simples e direto
+schedule.every().day.at("10:20").do(Deslogar.quit)
 
-def menor(menor):
-    menor = menor.replace(".","")
-    try:
-        menor = int(menor)
-        print(menor)
-        return menor
-    except:
-        pass
+contador = 0
 
-time.sleep(10)
-for i in range(0,10000):
+def timer_forninho(tempo):
+        print(f"Iniciando cronômetro de {tempo} segundos para voltar ao trabalho")
 
-    try:
-        menorPaella, vendedorPaella = AbrirMarket.verificarPrecoPaella()
-
-        menorPrecoPaella = menor(menorPaella)
-        print(menor)
-        
-        if vendedorPaella != "Marketmaker" and menorPrecoPaella > 3448:
-            print(f"Valor de {menorPrecoPaella}, temos lucro")
-            print("Entrou na venda")
-            Venda.vendaPaella(menorPaella)
-
-        menorFrango, vendedorFrango = AbrirMarket.verificarPrecoFrango()
-
-        menorPrecoFrango = menor(menorPaella)
-
-        if vendedorFrango != "Marketmaker" and menorPrecoFrango > 2716:
-            print(f"Valor de {menorPrecoFrango}, temos lucro")
-            print("Entrou na venda")
+        for i in range(tempo, 0, -1):
+            print(f"Tempo restante: {i} ", end="\r")
             time.sleep(1)
-            Venda.vendaFrango(menorFrango)
 
-        Bau.bau()
+        print("\n AO TRABALHO, LETISGO")
 
-        contador = 300
+def menosUm(menorCompra):
+    menorCompra = menorCompra.replace(".", "")
+    print(menorCompra)
+    try:
+        menorCompra = int(menorCompra) + 1
+        menorCompra = str(menorCompra)
+        return menorCompra
+    except ValueError:
+        return
 
-        def timer_forninho(tempo):
-            print(f"Iniciando cronômetro de {tempo} segundos para ficar pronto")
+def igual(menorVenda):
+    menorVenda = menorVenda.replace(".", "")
+    try:
+        menorVenda = int(menorVenda) - 1
+        menorVenda = str(menorVenda)
+        return menorVenda
+    except ValueError:
+        return
 
-            for i in range(tempo, 0, -1):
-                print(f"Tempo restante: {i} ", end="\r")
-                time.sleep(1)
+quantidade = 5
+lucroMinimo = 500
 
-            print("\n Ficou pronto, LETISGO")
+time.sleep(3)
 
-        timer_forninho(contador)
-    except:
-         time.sleep(10)
-         continue
+nomeItem = ["Gema", "Cristal Radiante"]
+
+while 1 == 1:
+    schedule.run_pending()
+    CheckTelas.checagemDeTelas()
+    for nome in nomeItem:
+        try:
+            menorCompra, vendedorCompra = MarketCompra.ChecarCompra(nome)
+            menorVenda, vendedorVenda = MarketVenda.ChecarVenda(nome)
+            menorCompra = menosUm(menorCompra)
+            menorVenda = igual(menorVenda)
+            print(f"Margem de lucro {nome}: {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+            if (float(menorVenda)*0.97 - float(menorCompra)*0.97) > lucroMinimo:
+                if not vendedorCompra == "Lunck":
+                    CompraVenda.EfetuarCompra(menorCompra, nome, quantidade)
+                    time.sleep(1)
+                if not vendedorVenda == "Lunck":
+                    CompraVenda.EfetuarVenda(menorVenda, nome, quantidade)
+                    time.sleep(1)
+            else:
+                print(f"Não vale a pena, lucro de {float(menorVenda)*0.97 - float(menorCompra)*0.97}")
+        except TypeError:
+            pass
+    contador += 1
+    print(f"Estamos na volta {contador}/240")
+
+    if contador >= 240:
+        reset.resetMarket()
+        contador = 0
+    Bau.bau()
+    timer_forninho(30)
